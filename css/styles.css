@@ -11408,3 +11408,8 @@ section#contact form#contactForm :-ms-input-placeholder {
   width: 100%;
 }
 
+.clients{
+  display: flex;
+  align-items: center ;
+  justify-content: center;
+}
