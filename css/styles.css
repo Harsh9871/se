@@ -715,7 +715,7 @@ progress {
   .container-md,
   .container-sm,
   .container {
-    max-width: 960px;
+    max-width:  2px;
   }
 }
 
@@ -13261,7 +13261,6 @@ section#contact form#contactForm :-ms-input-placeholder {
 }
 
 .mytextshadow {
-
   text-align: center;
   -webkit-animation: glow 1s ease-in-out infinite alternate;
   -moz-animation: glow 1s ease-in-out infinite alternate;
@@ -13270,11 +13269,11 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 @keyframes glow {
   from {
-    text-shadow: 0 0 60px #fff, 0 0 60px #fff, 0 0 60px #fff, 0 0 60px #fff, 0 0 60px #fff, 0 0 60px #fff, 0 0 60px #fff;
+    text-shadow: 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff;
   }
 
   to {
-    text-shadow: 0 0 60px #fff, 0 0 60px #fff, 0 0 60px #fff, 0 0 60px #fff, 0 0 60px #fff, 0 0 60px #fff, 0 0 60px #fff;
+    text-shadow: 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff;
   }
 
 }
@@ -13300,4 +13299,14 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 .myimagebody {
   aspect-ratio: 1/1;
+}
+
+.scalableimage{
+  height:300px;
+  width: auto;
+}
+
+.jpg33{
+  height: 220px;
+  width:auto;
 }
