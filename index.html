@@ -16,24 +16,84 @@
     <meta name="author" content />
     <title>Sohang Education</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.jpg" />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.jpg" />
     <script src="./js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link href="css/styles.css" rel="stylesheet" />
-    
+    <link href="./css/styles.css" rel="stylesheet" />
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .bgimg {
+            height: 100%;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            color: black;
+            text-align: center;
+            -webkit-animation: glow 1s ease-in-out infinite alternate;
+            -moz-animation: glow 1s ease-in-out infinite alternate;
+            animation: glow 1s ease-in-out infinite alternate;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 25px;
+            overflow: hidden;
+            /* Ensures the image doesn't overflow its container */
+        }
+
+        .scrollable-image-container {
+            overflow: auto;
+            max-height: calc(100% - 150px);
+            /* Adjust according to your layout */
+        }
+
+        .scrollable-image {
+            display: block;
+            margin: auto;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .middle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        hr {
+            margin: auto;
+            width: 40%;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 20px #fff, 0 0 20px #fff, 0 0 20px #fff, 0 0 20px #fff, 0 0 20px #fff, 0 0 20px #fff, 0 0 20px #fff;
+            }
+
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 20px #fff, 0 0 20px #fff, 0 0 20px #fff, 0 0 20px #fff, 0 0 20px #fff, 0 0 20px #fff;
+            }
+        }
+    </style>
 </head>
 
 <body id="page-top">
+
+
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-        <div class="container">
+        <div class="container-fluid">
             <a class="navbar-brand" href="./">
                 <div class="mydivider">
                     <img src="./assets/img/logos/lightLogo.jpg" alt class="sticky-top myimagewithcurve">
-                    <img src="assets/img/navbar-logo.svg" alt="sohang education" class="mt-1" />
+                    <img src="./assets/img/navbar-logo.svg" alt="sohang education" class="mt-1" />
                 </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
@@ -54,7 +114,6 @@
         </div>
     </nav>
 
-   
     <!-- Masthead-->
     <header class="masthead" id="mymasthead">
         <div class="container-fluid ">
@@ -67,9 +126,49 @@
                     ETHICAL HACKING & CYBERSECURITY INSTITUTE IN
                     DELHI</h2>
             </div>
-            <a class="btn btn-primary btn-xl text-uppercase mp-3" href="#services">Explore More</a>
+            <a class="btn btn-primary btn-xl text-uppercase mp-3 " href="#launches">Explore More</a>
         </div>
     </header>
+    <!-- comming soon  -->
+    <div class="bgimg portrait-container container mt-3" id="launches">
+        <div class="middle">
+            <h1>COMING SOON</h1>
+            <hr>
+            <h1 id="demo" style="font-size:50px"></h1>
+        </div>
+        <div class="scrollable-image-container">
+            <img src="./assets/img/launch/Cyber Rakhshak.jpg" alt="Portrait Image" class="scrollable-image">
+        </div>
+    </div>
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Mar 31, 2024").getTime();
+
+        // Update the count down every 1 second
+        var countdownfunction = setInterval(function () {
+            // Get todays date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now an the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="demo"
+            document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+            // If the count down is over, write some text 
+            if (distance < 0) {
+                clearInterval(countdownfunction);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
     <!-- Services-->
     <section class="page-section" id="services">
         <div class="container">
@@ -374,8 +473,7 @@
                     <div class="team-member">
                         <img class="mx-auto rounded-circle" src="assets/img/team/team8.jpg" alt="..." />
                         <h4>Rahul Sharma</h4>
-                        <p class="text-muted">System & Server
-                            Administrator</p>
+                        <p class="text-muted">System & Server Administrator</p>
                     </div>
                 </div>
 
@@ -514,13 +612,39 @@
     </footer>
 
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Google tag (gtag.js) -->
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/scripts.js"></script>
     <script src="./js/jquery-3.7.1.min.js"></script>
     <script>
+
+
         $(document).ready(function () {
-            
+
+
+
             let images = [
                 './assets/img/navBar/1.jpg',
                 './assets/img/navBar/2.jpg',
