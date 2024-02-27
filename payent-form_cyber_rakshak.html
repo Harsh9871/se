@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Rakhshak</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+
+<body>
+    <h1 style="text-align: center;" class="mb-5">CYBER RAKSHAK V 1.0</h1>
+    <div class="row mt-5">
+        <div class="col col-1 ">
+
+        </div>
+        <div class="col col-5">
+            <div class="container">
+                <img src="./assets/img/launch/3[1]_compressed_pages-to-jpg-0001.jpg" alt="" style="width: 100%;">
+            </div>
+        </div>
+        <div class="col col-5">
+            <div class="container">
+                <div id="ff-compose"></div>
+            </div>
+        </div>
+
+        <div class="col col-1"></div>
+    </div>
+    <script async defer
+        src="https://formfacade.com/include/113681604911097846902/form/1FAIpQLSckPIODRxZ9rLFhqgd7hcz_2mYrElnQBSPDLmkGL42kmZXPeA/classic.js?div=ff-compose"></script>
+    <script>
+        // JavaScript to handle URL changes without .html extension
+        function loadContent() {
+            var url = window.location.href.replace(/\/$/, "");
+            var page = url.substr(url.lastIndexOf("/") + 1);
+            if (!page || page === "") page = "index"; // Default page
+            document.getElementById("imageContainer").innerHTML = ""; // Clear previous content
+            document.getElementById("formContainer").innerHTML = ""; // Clear previous content
+            // Load content based on page name
+            if (page === "index") {
+                // Load default content
+                document.getElementById("imageContainer").innerHTML = `<img src="./assets/img/launch/3[1]_compressed_pages-to-jpg-0001.jpg" alt="" style="width: 100%;">`;
+                document.getElementById("formContainer").innerHTML = `<div id="ff-compose"></div>`;
+            } else if (page === "otherpage") {
+                // Load content for other pages
+                // You can add more conditions for other pages
+            }
+        }
+        // Load content when the page loads
+        loadContent();
+        // Listen for changes in the URL
+        window.addEventListener('popstate', function (event) {
+            loadContent();
+        });
+    </script>
+</body>
+
+</html>

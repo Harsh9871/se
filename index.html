@@ -235,7 +235,9 @@
                     ETHICAL HACKING & CYBERSECURITY INSTITUTE IN
                     DELHI</h2>
             </div>
-            <a class="btn btn-primary btn-xl text-uppercase mp-3 " href="/#about">Explore More</a>
+            <div id="customButtonBookTicket">
+                <a class="btn btn-primary btn-xl text-uppercase mp-3 " href="/#about">Explore More</a>
+            </div>
         </div>
     </header>
     <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSckPIODRxZ9rLFhqgd7hcz_2mYrElnQBSPDLmkGL42kmZXPeA/viewform?embedded=true" width="640" height="904" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> -->
@@ -349,7 +351,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- About-->
     <section class="page-section" id="services">
         <div class="container">
@@ -732,8 +734,8 @@
         <!-- Modal content -->
         <div class="myModalContentForLaunch">
             <span class="myCloseButtonForLaunch" id="myCloseButtonForLaunch">&times;</span>
-            <img src="./assets/img/launch/Cyber Rakhshak.jpg" alt="" width="100%">
-            <a href="./PAYMENT-SYBER_RAKSHAK.HTML" target="_blank" class="btn btn-primary">Book Your Seat Now</a>
+            <img src="./assets/img/launch/3[1]_compressed_pages-to-jpg-0001.jpg" alt="" width="100%">
+            <a href="./payent-form_cyber_rakshak.html" target="_blank" class="btn btn-primary">Book Your Seat Now</a>
             <p></p>
         </div>
 
@@ -749,6 +751,10 @@
             if (event.target == modal) {
                 modal.style.display = "none";
             }
+
+            document.querySelector("#customButtonBookTicket").innerHTML = `
+            <a class="btn btn-primary btn-xl text-uppercase mp-3 " href="/payent-form_cyber_rakshak.html">BOOK YOUR SEAT NOW</a>
+            `
 
         });
 
