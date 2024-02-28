@@ -236,7 +236,8 @@
                     DELHI</h2>
             </div>
             <div>
-                <a class="btn btn-primary btn-xl text-uppercase mp-3 " href="./payent-form_cyber_rakshak.html" target="_blank">Book Your Seat Now</a>
+                <a class="btn btn-primary btn-xl text-uppercase mp-3 " href="./payent-form_cyber_rakshak.html"
+                    target="_blank">Book Your Seat Now</a>
             </div>
         </div>
     </header>
@@ -295,7 +296,7 @@
                     with our expert instructors and become proficient in cybersecurity. Join Sohang Education today for
                     the best coaching in cybersecurity and ethical hacking.</h3>
             </div>
-            <div class="row text-center">
+            <div class="row text-center" id="animationSection">
                 <div class="col-md-4 mybackground-color">
                     <span class="fa-stack fa-4x">
                         <div>
@@ -349,10 +350,26 @@
                         functionality of software applications.</p>
                 </div>
             </div>
+
+            <script>
+                window.addEventListener('scroll', function () {
+                    var animationSection = document.getElementById('animationSection');
+                    var sectionPosition = animationSection.getBoundingClientRect().top;
+                    var screenPosition = window.innerHeight;
+
+                    if (sectionPosition < screenPosition) {
+                        animationSection.classList.add('slide-in');
+                    } else {
+                        animationSection.classList.remove('slide-in');
+                    }
+                });
+
+
+            </script>
         </div>
     </section>
 
-    <!-- About-->
+    <!-- service-->
     <section class="page-section" id="services">
         <div class="container">
             <div class="text-center">
@@ -377,6 +394,20 @@
     </section>
 
     <!-- Gallary Grid-->
+    <style>
+        .myrow {
+            opacity: 0;
+            transform: translateY(100px);
+            /* Initially move the element down */
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        .myrow.active {
+            opacity: 1;
+            transform: translateY(0);
+            /* Move the element back to its original position */
+        }
+    </style>
     <section class="page-section bg-light" id="Gallary">
         <div class="container">
             <div class="text-center">
@@ -387,7 +418,8 @@
                     gallery, showcasing a diverse range of creative
                     projects and accomplishments.</h3>
             </div>
-            <div class="row">
+
+            <div class="row myrow">
                 <div class="col-lg-4 col-sm-6 mb-4">
                     <!-- Portfolio item 1 -->
                     <div class="portfolio-item">
@@ -439,8 +471,7 @@
                         </a>
                         <div class="portfolio-caption">
                             <div class="portfolio-caption-heading mytext-z">Seminar</div>
-                            <div class="portfolio-caption-subheading text-muted mytext-z">Cyber
-                                Seminars</div>
+                            <div class="portfolio-caption-subheading text-muted mytext-z">Cyber Seminars</div>
                         </div>
                     </div>
                 </div>
@@ -448,6 +479,25 @@
                     style="max-width: 50vh;">Explore More Images </a>
             </div>
         </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var myRow = document.querySelector('.myrow');
+
+                function checkScroll() {
+                    var yPos = myRow.getBoundingClientRect().top;
+                    var windowHeight = window.innerHeight;
+
+                    if (yPos < windowHeight * 0.8) { // Adjust the percentage as needed
+                        myRow.classList.add('active');
+                        window.removeEventListener('scroll', checkScroll);
+                    }
+                }
+
+                window.addEventListener('scroll', checkScroll);
+                checkScroll(); // Check on initial load in case the element is already visible
+            });
+
+        </script>
     </section>
 
 
@@ -456,100 +506,180 @@
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">our government COVERAGE</h2>
             </div>
-            <div class="" style="width:100%">
-                <div class="py-5 clients">
-                    <div class="container-fluid ">
-                        <div class="row align-items-center clients">
-                            <div class="col-md-3 col-sm-6 my-3">
-                                <a><img class="img-fluid mx-auto " src="./assets/img/clients/crpf.jpg" alt="..."
-                                        aria-label="Microsoft Logo" /></a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 my-3">
-                                <a><img class="img-fluid mx-auto scalableimage"
-                                        src="./assets/img/clients/delhipolice.jpg" alt="..."
-                                        aria-label="Google Logo" /></a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 my-3">
-                                <a><img class="img-fluid mx-auto jpg33" src="./assets/img/clients/33.jpg" alt="..."
-                                        aria-label="Google Logo" /></a>
-                            </div>
+            <style>
+                .flip-effect {
+                    border-radius: 25%;
+                    cursor: pointer;
+                    position: relative;
+                    display: inline-block;
+                }
+
+                .flip-effect img {
+                    transition: transform 1s;
+                }
+
+                .flip-effect:hover img {
+                    animation: flip 1s ease-in-out forwards;
+                    transform-style: preserve-3d;
+                }
+
+                @keyframes flip {
+                    0% {
+                        transform: perspective(400px) rotateY(0);
+                    }
+
+                    100% {
+                        transform: perspective(400px) rotateY(360deg);
+                    }
+                }
+            </style>
+            <div class="py-5 clients">
+                <div class="container-fluid">
+                    <div class="row align-items-center clients">
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <a class="flip-effect" href="#"><img class="img-fluid mx-auto"
+                                    src="./assets/img/clients/crpf.jpg" alt="..." aria-label="Microsoft Logo" /></a>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <a class="flip-effect" href="#"><img class="img-fluid mx-auto"
+                                    src="./assets/img/clients/delhipolice.jpg" alt="..." aria-label="Google Logo" /></a>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <a class="flip-effect" href="#"><img class="img-fluid mx-auto"
+                                    src="./assets/img/clients/33.jpg" alt="..." aria-label="Google Logo" /></a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <section style="padding:0px">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">Our Colleges Coverage</h2>
-            </div>
-            <div class="clients" style="padding:0px;margin:0px;">
-                <div class="py-5 clients">
-                    <div class="container clients">
-                        <div class="row align-items-center clients">
-                            <div class="col-md-3 col-sm-6 my-3">
-                                <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/amity.jpg  "
-                                        alt="..." aria-label="Microsoft Logo" style="scale:0.86 ;" /></a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 my-3">
-                                <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/pcbt.png"
-                                        alt="..." aria-label="Google Logo" /></a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 my-3">
-                                <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/gcms.png"
-                                        alt="..." aria-label="Google Logo" style="scale:1.5" /></a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 my-3">
-                                <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/srcc.jpg"
-                                        alt="..." aria-label="Google Logo" style="scale:0.86" /></a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 my-3">
-                                <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/rit.jpg"
-                                        alt="..." aria-label="Google Logo" style="scale:0.86" /></a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 my-3">
-                                <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/lvp.png"
-                                        alt="..." aria-label="Google Logo" style="scale:0.86" /></a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 my-3">
-                                <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/tte.png"
-                                        alt="..." aria-label="Google Logo" style="scale:0.86" /></a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 my-3">
-                                <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/czmg.png"
-                                        alt="..." aria-label="Google Logo" style="scale:0.86" /></a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 my-3">
-                                <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/vips.jpg"
-                                        alt="..." aria-label="Google Logo" style="scale:0.86" /></a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 my-3">
-                                <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/appejay.jpg"
-                                        alt="..." aria-label="Google Logo" style="scale:0.86" /></a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 my-3">
-                                <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/ati.jpg"
-                                        alt="..." aria-label="Google Logo" /></a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 my-3">
-                                <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/itw.jpg"
-                                        alt="..." aria-label="Google Logo" style="scale:0.86" /></a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 my-3">
-                                <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/sggs.jpg"
-                                        alt="..." aria-label="Google Logo" style="scale:0.86" /></a>
-                            </div>
+    </div>
+    </section>
+    <style>
+        .clientimages {
+            width: 200px;
+            max-width: 200px;
+            transition: transform 1s ease;
+        }
+
+        .row-border {
+            border: 50px solid transparent;
+        }
+    </style>
+    <section style="padding:0px">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Our Colleges Coverage</h2>
+        </div>
+        <div class="clients" style="padding:0px;margin:0px;">
+        <div class="py-5 clients">
+            <div class="container clients">
+                <div class="row align-items-center clients" id="imageRow">
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/amity.jpg" alt="..." aria-label="Microsoft Logo" style="transform: scale(1);" /></a>
+                    </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/pcbt.png" alt="..."
+                                    aria-label="Google Logo" style="transform: scale(1);"/></a>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/gcms.png" alt="..."
+                                    aria-label="Google Logo" style="scale:1.5;transform: scale(1);" /></a>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/srcc.jpg" alt="..."
+                                    aria-label="Google Logo" style="scale:0.86;transform: scale(1);" /></a>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/rit.jpg" alt="..."
+                                    aria-label="Google Logo" style="scale:0.86;transform: scale(1);" /></a>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/lvp.png" alt="..."
+                                    aria-label="Google Logo" style="scale:0.86;transform: scale(1);" /></a>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/tte.png" alt="..."
+                                    aria-label="Google Logo" style="scale:0.86;transform: scale(1);" /></a>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/czmg.png" alt="..."
+                                    aria-label="Google Logo" style="scale:0.86;transform: scale(1);" /></a>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/vips.jpg" alt="..."
+                                    aria-label="Google Logo" style="scale:0.86;transform: scale(1);" /></a>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/appejay.jpg"
+                                    alt="..." aria-label="Google Logo" style="scale:0.86;transform: scale(1);" /></a>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/ati.jpg" alt="..."
+                                    aria-label="Google Logo" style="transform: scale(1);"/></a>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/itw.jpg" alt="..."
+                                    aria-label="Google Logo" style="scale:0.86;transform: scale(1);" /></a>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/sggs.jpg" alt="..."
+                                    aria-label="Google Logo" style="scale:0.86;transform: scale(1);" /></a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const images = document.querySelectorAll(".clientimages");
+
+            setInterval(function () {
+                images.forEach(function (image) {
+                    const currentScale = parseFloat(image.style.transform.match(/\d+(\.\d+)?/g)[0]);
+                    const newScale = currentScale === 1.1 ? 1 : 1.1;
+                    image.style.transform = `scale(${newScale})`;
+                });
+            }, 1000);
+        });
+
+    </script>
     </div>
     <!-- Team-->
+    <style>
+        .team-member {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-member img {
+            transition: transform 0.5s ease;
+        }
+
+        .team-member:hover img {
+            transform: scale(1.1);
+        }
+
+        .parallax {
+            z-index: 100;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('path_to_your_parallax_image.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .team-member:hover .parallax {
+            opacity: 1;
+        }
+    </style>
     <section class="page-section bg-light" id="team">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">Our
-                    Amazing Team</h2>
+                <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
                 <h3 class="section-subheading text-muted">Inspiring
                     greatness, shaping futures. </h3>
             </div>
@@ -643,6 +773,36 @@
                 </div>
             </div>
         </div>
+        <script>
+            // Optional: You can use JavaScript to create a parallax effect
+            // Here's a basic example using vanilla JavaScript
+            document.querySelectorAll('.team-member').forEach(item => {
+                item.addEventListener('mousemove', function (e) {
+                    const mouseX = e.clientX;
+                    const mouseY = e.clientY;
+                    const box = this.getBoundingClientRect();
+                    const offsetX = mouseX - box.left;
+                    const offsetY = mouseY - box.top;
+                    const centerX = box.width / 2;
+                    const centerY = box.height / 2;
+                    const percentX = (offsetX - centerX) / centerX;
+                    const percentY = (offsetY - centerY) / centerY;
+                    const parallaxElements = this.querySelectorAll('.parallax');
+
+                    parallaxElements.forEach(element => {
+                        element.style.transform = `translate(${percentX * 20}px, ${percentY * 20}px)`;
+                    });
+                });
+
+                item.addEventListener('mouseleave', function () {
+                    const parallaxElements = this.querySelectorAll('.parallax');
+                    parallaxElements.forEach(element => {
+                        element.style.transform = 'translate(0, 0)';
+                    });
+                });
+            });
+
+        </script>
     </section>
     <!-- Contact-->
     <section class="page-section" id="contact">
@@ -791,10 +951,11 @@
             let images = [
                 './assets/img/navBar/1.jpg',
                 './assets/img/navBar/2.jpg',
+                './assets/img/gallery/160.jpeg',
                 './assets/img/navBar/3.jpg',
                 './assets/img/navBar/4.jpg',
                 './assets/img/navBar/5.jpg',
-                './assets/img/navBar/6.jpg'
+                './assets/img/navBar/6.jpg',
 
             ];
             let currentIndex = 0;
