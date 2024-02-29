@@ -422,7 +422,7 @@ button,
 [type=button],
 [type=reset],
 [type=submit] {
-  -webkit-appearance: button;
+-webkit-appearance: button;
 }
 
 button:not(:disabled),
@@ -715,7 +715,7 @@ progress {
   .container-md,
   .container-sm,
   .container {
-    max-width:  2px;
+    max-width: 2px;
   }
 }
 
@@ -13289,58 +13289,61 @@ section#contact form#contactForm :-ms-input-placeholder {
   flex-direction: row;
   width: 100%;
 }
+
 .clients {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto; /* This centers the div horizontally */
-  text-align: center; /* This centers the content inside the div */
+  margin: 0 auto;
+  /* This centers the div horizontally */
+  text-align: center;
+  /* This centers the content inside the div */
 }
 
 .myimagebody {
   aspect-ratio: 1/1;
 }
 
-.scalableimage{
-  height:300px;
+.scalableimage {
+  height: 300px;
   width: auto;
 }
 
-.jpg33{
+.jpg33 {
   height: 220px;
-  width:auto;
+  width: auto;
 }
-.launchImage{
+
+.launchImage {
   height: 200px;
 }
+
 @media (max-width: 575.98px) {
-  .launchImage{
+  .launchImage {
     height: 350px;
   }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
-  .launchImage{
+  .launchImage {
     height: 500px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
-  .launchImage{
+  .launchImage {
     height: 500px;
   }
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
-  .launchImage{
+  .launchImage {
     height: 500px;
   }
 }
 
 @media (min-width: 1200px) {
-  .launchImage{
+  .launchImage {
     height: 500px;
   }
 }
-
-
