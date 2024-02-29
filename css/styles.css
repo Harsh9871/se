@@ -13344,31 +13344,3 @@ section#contact form#contactForm :-ms-input-placeholder {
 }
 
 
-.animate-slide {
-  opacity: 0;
-  transform: translateY(90px);
-  transition: opacity 1s ease, transform 1 ease;
-}
-
-.animate-slide.active {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-@keyframes slideInFromLeft {
-  0% {
-      transform: translateX(-100%);
-      opacity: 0;
-  }
-  100% {
-      transform: translateX(0);
-      opacity: 1;
-  }
-}
-
-.slide-in {
-  animation: slideInFromLeft 1s ease-out;
-}
-
-
-

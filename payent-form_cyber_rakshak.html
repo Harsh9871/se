@@ -26,15 +26,62 @@
         <div class="col col-5">
             <div class="conatiner">
 
+                <style>
+                    /* CSS for fade-in animation */
+                    .container img {
+                        transition: opacity 1s ease-in-out;
+                        opacity: 1;
+                    }
+
+                    .container img.hidden {
+                        opacity: 0;
+                    }
+                </style>
+
                 <div class="container mb-5" style="height: 100%;">
-                    <img src="./assets/img/launch/poser.jpg" alt="" style="width: 100%; height: auto;border-radius: 15px;">
+                    <img id="image" src="./assets/img/launch/1.jpg" alt=""
+                        style="width: 100%; height: auto; border-radius: 15px;">
                 </div>
+
+                <script>
+                    // List of image sources
+                    var imageSources = [
+                        "./assets/img/launch/1.jpg",
+                        "./assets/img/launch/2.jpg",
+                        "./assets/img/launch/3.jpg",
+                        "./assets/img/launch/4.jpg"
+                    ];
+
+                    var currentIndex = 1;
+                    var imageElement = document.getElementById('image');
+
+                    // Function to change image with fade-in effect
+                    function changeImage() {
+                        // Fade out current image
+                        imageElement.classList.add('hidden');
+
+                        setTimeout(function () {
+                            // Change image source
+                            imageElement.src = imageSources[currentIndex];
+
+                            // Fade in new image
+                            imageElement.classList.remove('hidden');
+
+                            // Increment index for next image
+                            currentIndex = (currentIndex + 1) % imageSources.length; // Loop back to the beginning
+                        }, 1000); // Wait for fade-out transition to complete
+                    }
+
+                    // Change image every 5 seconds (5000 milliseconds)
+                    setInterval(changeImage, 5000);
+                </script>
+
                 <div class="container mt-5" style="height: 100%;">
-                    <img src="./assets/img/launch/3[1]_compressed_pages-to-jpg-0001.jpg" alt="" style="width: 100%;border-radius: 15px;">
+                    <img src="./assets/img/launch/a.jpg" alt="" style="width: 100%;border-radius: 15px;">
                 </div>
             </div>
         </div>
-        
+
 
 </body>
 

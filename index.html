@@ -284,7 +284,34 @@
         }, 1000);
     </script> -->
     <!-- Services-->
+    <style>
+        .animate-slide {
+            opacity: 0;
+            transform: translateY(90px);
+            transition: opacity 1s ease, transform 1 ease;
+        }
 
+        .animate-slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .slide-in {
+            animation: slideInFromLeft 1s ease-out;
+        }
+    </style>
     <section class="page-section" id="about">
         <div class="container">
             <div class="text-center">
@@ -569,15 +596,16 @@
             <h2 class="section-heading text-uppercase">Our Colleges Coverage</h2>
         </div>
         <div class="clients" style="padding:0px;margin:0px;">
-        <div class="py-5 clients">
-            <div class="container clients">
-                <div class="row align-items-center clients" id="imageRow">
-                    <div class="col-md-3 col-sm-6 my-3">
-                        <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/amity.jpg" alt="..." aria-label="Microsoft Logo" style="transform: scale(1);" /></a>
-                    </div>
+            <div class="py-5 clients">
+                <div class="container clients">
+                    <div class="row align-items-center clients" id="imageRow">
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/amity.jpg"
+                                    alt="..." aria-label="Microsoft Logo" style="transform: scale(1);" /></a>
+                        </div>
                         <div class="col-md-3 col-sm-6 my-3">
                             <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/pcbt.png" alt="..."
-                                    aria-label="Google Logo" style="transform: scale(1);"/></a>
+                                    aria-label="Google Logo" style="transform: scale(1);" /></a>
                         </div>
                         <div class="col-md-3 col-sm-6 my-3">
                             <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/gcms.png" alt="..."
@@ -613,7 +641,7 @@
                         </div>
                         <div class="col-md-3 col-sm-6 my-3">
                             <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/ati.jpg" alt="..."
-                                    aria-label="Google Logo" style="transform: scale(1);"/></a>
+                                    aria-label="Google Logo" style="transform: scale(1);" /></a>
                         </div>
                         <div class="col-md-3 col-sm-6 my-3">
                             <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/itw.jpg" alt="..."
