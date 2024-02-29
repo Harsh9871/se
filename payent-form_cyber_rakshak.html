@@ -5,84 +5,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cyber Rakhshak</title>
-
     <link rel="icon" type="image/x-icon" href="/assets/favicon.jpg">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
 </head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .title {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .image-container {
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    .image {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        border-radius: 15px;
+    }
+
+    /* Media query for landscape orientation */
+    @media screen and (orientation: landscape) {
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        iframe {
+            width: 45%;
+            /* Adjust width as needed */
+        }
+
+        .image {
+            width: 45%;
+            /* Adjust width as needed */
+        }
+    }
+
+    /* Media query for portrait orientation */
+    @media screen and (orientation: portrait) {
+        .container {
+            display: block;
+        }
+
+        iframe,
+        .image {
+            width: 100%;
+        }
+    }
+
+    .image {
+        transition: opacity 1s ease-in-out;
+    }
+</style>
 
 <body>
-    <h1 style="text-align: center;" class="mb-5">CYBER RAKSHAK V 1.0</h1>
-    <div class="row mt-5" style="height: 1000px;">
-        <div class="col col-1 ">
+    <h1 class="title">CYBER RAKSHAK V 1.0</h1>
+    <div class="container">
+        <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSckPIODRxZ9rLFhqgd7hcz_2mYrElnQBSPDLmkGL42kmZXPeA/viewform?embedded=true"
+            width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <img id="image" src="./assets/img/launch/1.jpg" alt="Image" class="image">
+        <script>
+            // List of image sources
+            var imageSources = [
+                "./assets/img/launch/1.jpg",
+                "./assets/img/launch/2.jpg",
+                "./assets/img/launch/3.jpg",
+                "./assets/img/launch/4.jpg"
+            ];
 
-        </div>
-        <div class="col col-5">
-            <iframe
-                src="https://docs.google.com/forms/d/e/1FAIpQLSckPIODRxZ9rLFhqgd7hcz_2mYrElnQBSPDLmkGL42kmZXPeA/viewform?embedded=true"
-                width="640" height="1994" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-            <div class="col col-1"></div>
-        </div>
-        <div class="col col-5">
-            <div class="conatiner">
+            var currentIndex = 1;
+            var imageElement = document.getElementById('image');
 
-                <style>
-                    /* CSS for fade-in animation */
-                    .container img {
-                        transition: opacity 1s ease-in-out;
-                        opacity: 1;
-                    }
+            // Function to change image with fade-in and fade-out effect
+            function changeImage() {
+                // Fade out current image
+                imageElement.style.opacity = 0;
 
-                    .container img.hidden {
-                        opacity: 0;
-                    }
-                </style>
+                setTimeout(function () {
+                    // Change image source
+                    imageElement.src = imageSources[currentIndex];
 
-                <div class="container mb-5" style="height: 100%;">
-                    <img id="image" src="./assets/img/launch/1.jpg" alt=""
-                        style="width: 100%; height: auto; border-radius: 15px;">
-                </div>
+                    // Fade in new image
+                    imageElement.style.opacity = 1;
 
-                <script>
-                    // List of image sources
-                    var imageSources = [
-                        "./assets/img/launch/1.jpg",
-                        "./assets/img/launch/2.jpg",
-                        "./assets/img/launch/3.jpg",
-                        "./assets/img/launch/4.jpg"
-                    ];
+                    // Increment index for next image
+                    currentIndex = (currentIndex + 1) % imageSources.length; // Loop back to the beginning
+                }, 1000); // Wait for fade-out transition to complete
+            }
 
-                    var currentIndex = 1;
-                    var imageElement = document.getElementById('image');
+            // Change image every 5 seconds (5000 milliseconds)
+            setInterval(changeImage, 4000);
+        </script>
 
-                    // Function to change image with fade-in effect
-                    function changeImage() {
-                        // Fade out current image
-                        imageElement.classList.add('hidden');
-
-                        setTimeout(function () {
-                            // Change image source
-                            imageElement.src = imageSources[currentIndex];
-
-                            // Fade in new image
-                            imageElement.classList.remove('hidden');
-
-                            // Increment index for next image
-                            currentIndex = (currentIndex + 1) % imageSources.length; // Loop back to the beginning
-                        }, 1000); // Wait for fade-out transition to complete
-                    }
-
-                    // Change image every 5 seconds (5000 milliseconds)
-                    setInterval(changeImage, 4000);
-                </script>
-
-                <div class="container mt-5" style="height: 100%;">
-                    <img src="./assets/img/launch/a.jpg" alt="" style="width: 100%;border-radius: 15px;">
-                </div>
-            </div>
-        </div>
-
-
+    </div>
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
