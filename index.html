@@ -565,11 +565,13 @@
                     <div class="row align-items-center clients">
                         <div class="col-md-3 col-sm-6 my-3">
                             <a class="flip-effect" href="#"><img class="img-fluid mx-auto"
-                                    src="./assets/img/clients/crpf.jpg" alt="..." aria-label="crpf Logo" style="scale: 0.8;" /></a>
+                                    src="./assets/img/clients/crpf.jpg" alt="..." aria-label="crpf Logo"
+                                    style="scale: 0.8;" /></a>
                         </div>
                         <div class="col-md-3 col-sm-6 my-3">
                             <a class="flip-effect" href="#"><img class="img-fluid mx-auto"
-                                    src="./assets/img/clients/delhipolice.png" alt="..." aria-label="delhi police" style="scale: 0.8;" /></a>
+                                    src="./assets/img/clients/delhipolice.png" alt="..." aria-label="delhi police"
+                                    style="scale: 0.8;" /></a>
                         </div>
                         <div class="col-md-3 col-sm-6 my-3">
                             <a class="flip-effect" href="#"><img class="img-fluid mx-auto"
@@ -651,6 +653,22 @@
                             <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/sggs.jpg" alt="..."
                                     aria-label="Google Logo" style="scale:0.86;transform: scale(1);" /></a>
                         </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/bently.png"
+                                    alt="..." aria-label="Google Logo" style="scale:0.86;transform: scale(1);" /></a>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/mait.png" alt="..."
+                                    aria-label="Google Logo" style="scale:0.86;transform: scale(1);" /></a>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/uAndrew.png"
+                                    alt="..." aria-label="Google Logo" style="scale:0.86;transform: scale(1);" /></a>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <a><img class="img-fluid mx-auto clientimages" src="./assets/img/clients/delhiRohini.png"
+                                    alt="..." aria-label="Google Logo" style="scale:0.86;transform: scale(1);" /></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -673,34 +691,22 @@
     </div>
     <!-- Team-->
     <style>
-        .team-member {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .team-member img {
-            transition: transform 0.5s ease;
-        }
-
-        .team-member:hover img {
-            transform: scale(1.1);
-        }
-
-        .parallax {
-            z-index: 100;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('path_to_your_parallax_image.jpg');
-            background-size: cover;
+        #team {
+            background-attachment: fixed;
             background-position: center;
-            opacity: 0;
-            transition: opacity 0.5s ease;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
         }
 
-        .team-member:hover .parallax {
+        .team-member {
+            transform: translateY(100px);
+            opacity: 0.5;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        .team-member.animated {
+            transform: translateY(0);
             opacity: 1;
         }
     </style>
@@ -801,37 +807,29 @@
                 </div>
             </div>
         </div>
-        <script>
-            // Optional: You can use JavaScript to create a parallax effect
-            // Here's a basic example using vanilla JavaScript
-            document.querySelectorAll('.team-member').forEach(item => {
-                item.addEventListener('mousemove', function (e) {
-                    const mouseX = e.clientX;
-                    const mouseY = e.clientY;
-                    const box = this.getBoundingClientRect();
-                    const offsetX = mouseX - box.left;
-                    const offsetY = mouseY - box.top;
-                    const centerX = box.width / 2;
-                    const centerY = box.height / 2;
-                    const percentX = (offsetX - centerX) / centerX;
-                    const percentY = (offsetY - centerY) / centerY;
-                    const parallaxElements = this.querySelectorAll('.parallax');
 
-                    parallaxElements.forEach(element => {
-                        element.style.transform = `translate(${percentX * 20}px, ${percentY * 20}px)`;
-                    });
-                });
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.addEventListener('scroll', function () {
+                var scrollTop = window.scrollY || document.documentElement.scrollTop;
+                var teamSection = document.getElementById('team');
+                teamSection.style.backgroundPositionY = -(scrollTop / 2) + 'px';
 
-                item.addEventListener('mouseleave', function () {
-                    const parallaxElements = this.querySelectorAll('.parallax');
-                    parallaxElements.forEach(element => {
-                        element.style.transform = 'translate(0, 0)';
-                    });
+                var teamMembers = document.querySelectorAll('.team-member');
+                var windowHeight = window.innerHeight;
+
+                teamMembers.forEach(function (teamMember) {
+                    var position = teamMember.getBoundingClientRect().top + scrollTop;
+                    if (position < scrollTop + windowHeight - 50) {
+                        teamMember.classList.add('animated');
+                    }
                 });
             });
+        });
 
-        </script>
-    </section>
+
+    </script>
     <!-- Contact-->
     <section class="page-section" id="contact">
         <div class="container">
@@ -920,7 +918,7 @@
     <div id="myCustomModalForLaunchEvent" class="modal" style="margin-top: 50px;">
 
         <!-- Modal content -->
-        <div class="myModalContentForLaunch" >
+        <div class="myModalContentForLaunch">
             <span class="myCloseButtonForLaunch" id="myCloseButtonForLaunch">&times;</span>
             <img src="./assets/img/launch/3[1]_compressed_pages-to-jpg-0001.jpg" alt="" width="100%">
             <a href="./payent-form_cyber_rakshak.html" target="_blank" class="btn btn-primary">Book Your Seat Now</a>
